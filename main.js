@@ -4,8 +4,6 @@ import "./style.css";
 let todoInput = document.querySelector(".todo-input");
 let addTodoButton = document.querySelector(".add-todo-btn");
 let todoList = document.querySelector(".todo-list");
-let doneButtonList = document.querySelectorAll(".todo-done-btn");
-let trashButtonList = document.querySelectorAll(".todo-trash-btn");
 
 /* Listeners */
 addTodoButton.addEventListener("click", (event) => {

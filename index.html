@@ -5,16 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+
+    <script
+      src="https://kit.fontawesome.com/3dc41f8996.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <header>
-      <h1>To-do List</h1>
-    </header>
-    <div>
-      <input type="text" class="todo-input" />
-      <button type="submit" class="add-todo-btn">+</button>
+    <div class="main">
+      <header>
+        <h1>To-do List</h1>
+      </header>
+      <div class="todo-form">
+        <input
+          type="text"
+          class="todo-input"
+          placeholder="Add a new task here..."
+        />
+        <button type="submit" class="add-todo-btn">
+          <i class="fa-thin fa-plus"></i>
+        </button>
+      </div>
+      <ul class="todo-list"></ul>
+      <script type="module" src="/main.js"></script>
     </div>
-    <ul class="todo-list"></ul>
-    <script type="module" src="/main.js"></script>
   </body>
 </html>

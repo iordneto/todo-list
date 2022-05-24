@@ -11,31 +11,38 @@ let trashButtonList = document.querySelectorAll(".todo-trash-btn");
 addTodoButton.addEventListener("click", (event) => {
   event.preventDefault();
   addTodo(todoInput.value);
+  todoInput.value = "";
 });
 
 /* Functions */
 const addTodo = (text) => {
   const newTodoDiv = document.createElement("div");
+  newTodoDiv.classList.add("todo-item");
 
   const todoItem = document.createElement("li");
   todoItem.innerText = text;
   newTodoDiv.appendChild(todoItem);
 
   const doneButton = document.createElement("button");
-  doneButton.innerText = "done";
+  doneButton.innerHTML = "<i class='fa-solid fa-check'></i>";
   doneButton.classList.add("todo-done-btn");
   doneButton.addEventListener("click", (event) => {
     event.preventDefault();
-    event.target.parentElement.classList.add("done");
+    const todo = event.target.parentElement;
+    todo.classList.toggle("done");
   });
   newTodoDiv.appendChild(doneButton);
 
   const trashButton = document.createElement("button");
-  trashButton.innerText = "trash";
+  trashButton.innerHTML = "<i class='fa-solid fa-trash-can'></i>";
   trashButton.classList.add("todo-trash-btn");
   trashButton.addEventListener("click", (event) => {
     event.preventDefault();
-    event.target.parentElement.remove();
+    const todo = event.target.parentElement;
+    todo.classList.add("removed");
+    todo.addEventListener("transitionend", () => {
+      todo.remove();
+    });
   });
   newTodoDiv.appendChild(trashButton);
 
